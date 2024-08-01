@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #3b3b3b;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            flex: 1;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #e7e7e7;
+        }
+        .header a {
+            color: #3b3b3b;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        .header a.active {
+            color: #8b6b50;
+        }
+        .content {
+            padding: 50px 0;
+        }
+        .content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .payment-card {
+            background-color: #d9c9a9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .payment-card img {
+            width: 80px;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+        .payment-card .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .payment-card .price {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: right;
+        }
+        .discount-code {
+            margin: 20px 0;
+        }
+        .discount-code input {
+            width: calc(100% - 40px);
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .discount-code .price {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: right;
+        }
+        .total {
+            font-size: 20px;
+            text-align: right;
+            font-weight: bold;
+        }
+        .pay-now-btn {
+            background-color: #8b6b50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            text-decoration: none; /* Ensure no underline */
+            display: inline-block; /* Ensure block styling */
+        }
+        .pay-now-btn:hover {
+            background-color: #725138;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <h2>MERCHANT WEBSITE</h2>
+            </div>
+            <div class="nav">
+                <a href="#">HOME</a>
+                <a href="#">ABOUT</a>
+                <a href="#">SHOP</a>
+                <a href="#" class="active">PAYMENT</a>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Payment</h1>
+            <div class="payment-card">
+                <img src="bracelet.jpg" alt="Product Image">
+                <div class="product-name">Bracelet</div>
+                <div class="price">$20</div>
+                <div class="discount-code">
+                    <input type="text" class="form-control" id="discountCode" placeholder="Discount code">
+                    <button class="btn btn-outline-secondary" onclick="applyDiscount()">Apply</button>
+                </div>
+                <div class="total" id="total">Total: $20</div>
+                <a href="advisory.html" class="pay-now-btn" id="payNowBtn">PAY NOW</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function applyDiscount() {
+            const validDiscountCode = 'DISCOUNT10'; // Example valid discount code
+            const discountPercentage = 0.1; // 10% discount
+            const totalPriceElement = document.getElementById('total');
+            const discountCodeInput = document.getElementById('discountCode').value;
+
+            if (discountCodeInput === validDiscountCode) {
+                const originalTotal = 20; // Original total price
+                const discountAmount = originalTotal * discountPercentage;
+                const newTotal = originalTotal - discountAmount;
+                totalPriceElement.textContent = 'Total: $' + newTotal.toFixed(2);
+                alert('Discount applied successfully!');
+            } else {
+                alert('Invalid discount code.');
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
