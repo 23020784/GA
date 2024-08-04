@@ -15,171 +15,48 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-        }
-        .container {
-            flex: 1;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 20px;
         }
-        .header a {
-            color: #3b3b3b;
-            text-decoration: none;
-            margin: 0 15px;
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 40px;
         }
-        .content {
-            padding: 50px 0;
-        }
-        .content h1 {
-            font-size: 48px;
-            margin: 0;
-            font-weight: normal;
-        }
-        .content p {
-            font-size: 20px;
-            line-height: 1.6;
-            margin: 20px 0;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .footer {
-            background-color: #8b6b50;
-            color: #ffffff;
-            padding: 20px 0;
+        .button-container form {
+            flex: 1;
             display: flex;
             justify-content: center;
         }
-        .footer div {
-            display: flex;
-            align-items: center;
-            margin: 0 20px;
-            text-align: center;
-        }
-        .footer div img {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
-        }
-        .login-form-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 100%;
-            background-color: #fff;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            z-index: 1000;
-        }
-        .login-form-container h3 {
-            margin-bottom: 20px;
-        }
-        .login-form-container input[type="text"],
-        .login-form-container input[type="password"] {
+        .button-container button {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .login-form-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
+            max-width: 300px;
+            font-size: 22px;
+            padding: 15px;
+            background-color: #d9c9a9;
             border: none;
-            color: white;
-            border-radius: 4px;
+            border-radius: 10px;
+            color: #3b3b3b;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
-        .login-form-container button:hover {
-            background-color: #0056b3;
+        .button-container button:hover {
+            background-color: #c1b098;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">
-                <h2>SAFE IDENTITY</h2>
-            </div>
-            <div class="nav">
-                <a href="#">HOME</a>
-                <a href="contact.html">CONTACT</a>
-                <a href="#" id="login-link">LOGIN</a>
-            </div>
-        </div>
-        <div class="content">
-            <h1>SAFE IDENTITY</h1>
-            <p>Safe Identity is an e-KYC platform that ensures seamless onboarding by performing robust customer due diligence. With Safe Identity, merchants would have peace of mind from cross-border transactions, safeguarding against fraud and identity theft. We provide merchants with instant verification of customers' identity information, enhancing trust and security.</p>
-        </div>
-    </div>
-    <div class="login-form-container" id="login-form-container">
-        <h3>Login</h3>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Enter username" name="username" required>
-            <input type="password" id="password" placeholder="Enter password" name="password" required>
-            <button type="submit">Submit</button>
+    <h2>Login as:</h2>
+    <div class="button-container">
+        <form action="home.html" method="get">
+            <button type="submit">Merchant</button>
+        </form>
+        <form action="merchantpage.html" method="get">
+            <button type="submit">Customer</button>
         </form>
     </div>
-    <footer>
-        <div class="footer">
-            <div>
-                <img src="encryption.png" alt="Encrypts user's identity information">
-                <p>Encrypts user's identity information</p>
-            </div>
-            <div>
-                <img src="fraud.png" alt="Prevents fraud and identity theft">
-                <p>Prevents fraud and identity theft</p>
-            </div>
-            <div>
-                <img src="fast verication.png" alt="Fast verification">
-                <p>Fast verification</p>
-            </div>
-        </div>
-    </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.getElementById('login-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            var loginFormContainer = document.getElementById('login-form-container');
-            loginFormContainer.style.display = loginFormContainer.style.display === 'block' ? 'none' : 'block';
-        });
-
-        document.querySelectorAll('.nav a').forEach(function(navLink) {
-            navLink.addEventListener('click', function(event) {
-                if (this.id !== 'login-link') {
-                    document.getElementById('login-form-container').style.display = 'none';
-                }
-            });
-        });
-
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-
-            // Simulate a login process
-            if (username === 'testuser' && password === 'testpassword') {
-                // Alert the user of the successful change
-                alert('Login successful');
-
-                // Redirect to homepage
-                window.location.href = 'home2.html';
-            } else {
-                alert('Incorrect Username and/or Password!');
-            }
-        });
-    </script>
 </body>
 </html>

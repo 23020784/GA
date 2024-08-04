@@ -24,6 +24,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
+            position: relative;
         }
         .icon {
             font-size: 50px;
@@ -42,6 +43,12 @@
         .checkbox input {
             margin-right: 10px;
         }
+        .back-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -58,6 +65,9 @@
                 Notify once verification is accepted and confirmed
             </label>
         </div>
+        <div class="back-button">
+            <a href="index.html" class="btn btn-secondary">Back</a>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -65,3 +75,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </body>
 </html>
+
